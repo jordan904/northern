@@ -1168,6 +1168,8 @@ html {
 @media (max-width: 768px) {
   .navbar__toggle {
     display: flex;
+    z-index: 1001;
+    position: relative;
   }
 
   .navbar__links {
@@ -1182,10 +1184,13 @@ html {
     justify-content: center;
     gap: var(--space-lg);
     transform: translateX(100%);
+    z-index: 1000;
+    visibility: hidden;
   }
 
   .navbar__links.open {
     transform: translateX(0);
+    visibility: visible;
   }
 
   .navbar__links a {

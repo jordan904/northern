@@ -881,7 +881,7 @@ html {
 
 @media (prefers-reduced-motion: no-preference) {
   .marquee__track {
-    animation: marquee-scroll 12s linear infinite;
+    animation: marquee-scroll 25s linear infinite;
   }
 }
 
@@ -899,7 +899,7 @@ html {
 
 @media (max-width: 768px) and (prefers-reduced-motion: no-preference) {
   .marquee__track {
-    animation-duration: 8s;
+    animation-duration: 18s;
   }
 }
 
@@ -1122,9 +1122,19 @@ html {
 
 /* Mobile small */
 @media (max-width: 480px) {
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
   .hero {
     min-height: 100vh;
     min-height: 100dvh;
+  }
+
+  .hero__content {
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
   .hero__actions {
@@ -1146,6 +1156,11 @@ html {
 
   .gallery__grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .btn {
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 

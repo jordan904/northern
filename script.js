@@ -138,9 +138,29 @@
 
     if (!valid) return;
 
-    // Simulate success
-    form.style.display = 'none';
-    formSuccess.hidden = false;
+    // Submit to Formspree
+    var submitBtn = form.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then(function (response) {
+      if (response.ok) {
+        form.style.display = 'none';
+        formSuccess.hidden = false;
+      } else {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message';
+        alert('Something went wrong. Please try again.');
+      }
+    }).catch(function () {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Message';
+      alert('Something went wrong. Please try again.');
+    });
   });
 
   function showError(input, errorId, message) {
